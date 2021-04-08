@@ -1,0 +1,25 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header {
+    height: 400px;
+    width: 100%;
+    color: white;
+    border: 2px solid white;
+    background: url(./restaurant.jpg);
+}
+
+header nav {
+    text-align: right;
+}
+
+header nav li {
+    display: inline;
+}
+
+header .text {
+    text-align: center;
+}
