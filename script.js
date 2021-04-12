@@ -1,10 +1,8 @@
 function loadElements() {
     const elementList = JSON.parse(localStorage.getItem('elements') || "[]");
     if (elementList != null && elementList.length > 0) {
-        console.log("loading from local storage");
         loadElementsInPage(elementList);
     } else {
-        console.log("loading from code");
         createBaseElements();
     }
 }
@@ -115,7 +113,6 @@ function onDashboardButtonPresssed() {
 }
 
 function uploadToLocalStorage(elements) {
-    console.log(JSON.stringify(elements));
     localStorage.setItem("elements", JSON.stringify(elements));
 }
 
