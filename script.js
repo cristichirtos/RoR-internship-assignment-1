@@ -128,16 +128,19 @@ function onAddDishButtonPressed() {
     const name = document.dashboardForm.name.value;
     const category = document.dashboardForm.category.value;
     const price = document.dashboardForm.price.value;
-    const elementList = JSON.parse(localStorage.getItem('elements') || "[]");
-    const newElement = {
+    addNewElementToStorage({
         "imageUrl": url,
         "dishName": name,
         "category": category,
         "price": price
-    };
-    elementList.push(newElement);
+    });
+}
+
+function addNewElementToStorage(element) {
+    const elementList = JSON.parse(localStorage.getItem('elements') || "[]");
+    elementList.push(element);
     uploadToLocalStorage(elementList);
-    loadElementInHTML(newElement);
+    loadElementInHTML(element);
 }
 
 function removeAllChildNodes(parent) {
