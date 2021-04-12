@@ -17,29 +17,37 @@ function loadElementsInPage(elements) {
 }
 
 function loadElementInHTML(element) {
-    let containerParent = document.getElementById("container");
-    let dishDiv = document.createElement("div");
-    dishDiv.className = "dish";
-    let image = document.createElement("img");
-    image.className = "food-img";
+    const containerParent = document.getElementById("container");
+    containerParent.appendChild(createDishElement(element));
+}
+
+function createDishElement(element) {
+    const dishContainerDiv = createHTMLElement("div", "dish");
+    const image = createHTMLElement("img", "food-img");
     image.src = element.imageUrl;
-    let infoDiv = document.createElement("div");
-    infoDiv.className = "info";
-    let dishName = document.createElement("p");
-    let dishCategory = document.createElement("p");
-    let dishPrice = document.createElement("p");
-    dishName.className = "dishName";
-    dishName.innerHTML = element.dishName;
-    dishCategory.className = "category";
-    dishCategory.innerHTML = element.category;
-    dishPrice.className = "price";
-    dishPrice.innerHTML = element.price;
-    containerParent.appendChild(dishDiv);
-    dishDiv.appendChild(image);
-    dishDiv.appendChild(infoDiv);
-    infoDiv.appendChild(dishName);
-    infoDiv.appendChild(dishCategory);
-    infoDiv.appendChild(dishPrice);
+    dishContainerDiv.appendChild(image);
+    dishContainerDiv.appendChild(createInfoElement(element));
+    return dishContainerDiv;
+}
+
+function createInfoElement(element) {
+    const infoContainerDiv = createHTMLElement("div", "info");
+    const name = createHTMLElement("p", "dishName");
+    const category = createHTMLElement("p", "category");
+    const price = createHTMLElement("p", "price");
+    name.innerHTML = element.dishName;
+    category.innerHTML = element.category;
+    price.innerHTML = element.price;
+    infoContainerDiv.appendChild(name);
+    infoContainerDiv.appendChild(category);
+    infoContainerDiv.appendChild(price);
+    return infoContainerDiv;
+}
+
+function createHTMLElement(elementType, elementClass) {
+    const newHTMLElement = document.createElement(elementType);
+    newHTMLElement.className = elementClass;
+    return newHTMLElement;
 }
 
 function createBaseElements() {
