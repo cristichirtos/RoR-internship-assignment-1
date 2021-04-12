@@ -151,7 +151,7 @@ main .optionsBar {
     text-transform: uppercase;
 }
 
-form {
+.dashboardForm {
     display: none;
     margin-left: 150px;
     margin-bottom: 30px;
