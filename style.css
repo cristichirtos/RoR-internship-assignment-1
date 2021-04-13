@@ -5,7 +5,7 @@
     font-family: "Arial", sans-serif;
 }
 
-header {
+.header-wrapper {
     height: 400px;
     width: 100%;
     color: white;
@@ -13,7 +13,7 @@ header {
     background-size: cover;
 }
 
-header .logo {
+.header-wrapper .logo {
     height: 60px;
     width: 72px;
     position: relative;
@@ -21,26 +21,26 @@ header .logo {
     left: 260px;
 }
 
-header .logotext {
+.header-wrapper .logotext {
     position: relative;
     top: -40px;
     width: 50px;
     left: 340px;
 }
 
-header nav {
+.header-wrapper .navigation {
     text-align: right;
     align-content: center;
 }
 
-header nav ul li:not(:last-child):after {
+.header-wrapper .navigation .navigation-list li:not(:last-child):after {
     content: " \00b7";
     color: orange;
     margin-left: 5px;
     font-weight: bold;
 }
 
-header nav li {
+.header-wrapper .navigation li {
     position: relative;
     top: -60px;
     right: 150px;
@@ -50,12 +50,12 @@ header nav li {
     display: inline;
 }
 
-header #title {
+.header-wrapper #title {
     margin-bottom: 50px;
     font-size: 45px;
 }
 
-header .text {
+.header-wrapper .text {
     text-align: center;
     margin: 10px;
     font-weight: 600;
