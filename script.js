@@ -1,5 +1,6 @@
 function loadElements() {
     const elementList = JSON.parse(localStorage.getItem('elements') || "[]");
+
     if (elementList != null && elementList.length > 0) {
         loadElementsInPage(elementList);
     } else {
@@ -16,15 +17,18 @@ function loadElementsInPage(elements) {
 
 function loadElementInHTML(element) {
     const containerParent = document.getElementById("container");
+
     containerParent.appendChild(createDishElement(element));
 }
 
 function createDishElement(element) {
     const dishContainerDiv = createHTMLElement("div", "dish");
     const image = createHTMLElement("img", "food-img");
+
     image.src = element.imageUrl;
     dishContainerDiv.appendChild(image);
     dishContainerDiv.appendChild(createInfoElement(element));
+
     return dishContainerDiv;
 }
 
@@ -33,18 +37,22 @@ function createInfoElement(element) {
     const name = createHTMLElement("p", "dishName");
     const category = createHTMLElement("p", "category");
     const price = createHTMLElement("p", "price");
+
     name.innerHTML = element.dishName;
     category.innerHTML = element.category;
     price.innerHTML = element.price;
     infoContainerDiv.appendChild(name);
     infoContainerDiv.appendChild(category);
     infoContainerDiv.appendChild(price);
+
     return infoContainerDiv;
 }
 
 function createHTMLElement(elementType, elementClass) {
     const newHTMLElement = document.createElement(elementType);
+
     newHTMLElement.className = elementClass;
+
     return newHTMLElement;
 }
 
@@ -119,6 +127,7 @@ function uploadToLocalStorage(elements) {
 function onDeleteButtonPressed() {
     const indexToDelete = document.dashboardForm.index.value;
     const elementList = JSON.parse(localStorage.getItem('elements') || "[]");
+
     if (elementList == null || indexToDelete >= elementList.length) {
         alert("Invalid index.");
     } else {
@@ -133,6 +142,7 @@ function onAddDishButtonPressed() {
     const name = document.dashboardForm.name.value;
     const category = document.dashboardForm.category.value;
     const price = document.dashboardForm.price.value;
+
     addNewElementToStorage({
         "imageUrl": url,
         "dishName": name,
@@ -143,6 +153,7 @@ function onAddDishButtonPressed() {
 
 function addNewElementToStorage(element) {
     const elementList = JSON.parse(localStorage.getItem('elements') || "[]");
+    
     elementList.push(element);
     uploadToLocalStorage(elementList);
     loadElementInHTML(element);
