@@ -1,4 +1,87 @@
 <!DOCTYPE html>
 <html>
-  <body>This is the creation of the index.html file on GitHub!</body>
+  <head>
+    <title>Eureka Caffe</title>
+    <link href="./style.css" type="text/css" rel="stylesheet">
+    <script src="./script.js">
+    </script>
+  </head>
+
+  <body onload="loadElements()">
+    <header class="header-wrapper">
+      <img src="./logo.png" class="logo"/>
+      <p class="logotext"> Eureka <br> Caffe </p>
+        <nav class="navigation">
+          <ul class="navigation-list">
+            <li>HOME</li>
+            <li>ABOUT</li> 
+            <li>SERVICE</li>
+            <li>BLOG</li>
+            <li>CONTACTS</li>
+          </ul>
+        </nav>
+        <h1 id="title" class="text">Ordering food</h1>
+        <p class="text">You can order food in many ways. There are many algorithms out there that you can use to order food. </p>
+        <p class="text"> The only optimal ones, however, are quicksort and heapsort.</p>
+    </header>
+    
+    <main>
+      <div class="optionsBar">
+        <div class="dropdown" id="categoryOption">
+          <p class="droptext">CATEGORY<span class="caret">⌄</span></p>
+          <div class="dropdown-content">
+            <p>Pasta</p>
+            <p>Pizza</p>
+            <p>Soup</p>
+            <p>Salad</p>
+          </div>
+        </div>
+
+        <div class="dropdown" id="sortingOption">
+          <p class="droptext">SORTING<span class="caret">⌄</span></p>
+          <div class="dropdown-content">
+            <p>A-Z</p>
+            <p>Z-A</p>
+            <p>Price: L-H</p>
+            <p>Price: H-L</p>
+          </div>
+        </div>
+
+        <div class="dropdown" id="vegetarianOption">
+          <p class="droptext">VEGETARIAN<span class="caret">⌄</span></p>
+          <div class="dropdown-content">
+            <p>Vegetarian</p>
+            <p>Vegan</p>
+            <p>Non-vegetarian</p>
+          </div>
+        </div>
+
+        <p id="priceOption">PRICE</p>
+        <p class="priceOption" id="minPriceOption">$15</p>
+        <input type="range" name="price" min="15" max="100" id="priceRangeBar"/>
+        <p class="priceOption" id="maxPriceOption">$100</p>
+      </div>
+
+      <input type="button" name="dashboard" value="dashboard" id="dashboard" onclick="onDashboardButtonPresssed()">
+
+      <form name="dashboardForm" id="dashboardForm" class="dashboardForm">
+        Index of dish to delete: <input type="number" min="0" name="index">
+        <br>
+        Dish URL: <input type="text" name="imageurl">
+        <br>
+        Dish name: <input type="text" name="name">
+        <br>
+        Category: <input type="text" name="category">
+        <br>
+        Price: <input type="text" name="price">
+        <br>
+        <input type="button" value="Delete" onclick="onDeleteButtonPressed()">
+        <input type="button" value="Add Dish" onclick="onAddDishButtonPressed()">
+      </form>
+
+      <div class="gridContainer">
+        <div id="container" class="container"></div>
+      </div>
+    </main>
+  </body>
 </html> 
